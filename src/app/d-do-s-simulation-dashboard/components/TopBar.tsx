@@ -170,7 +170,7 @@ export default function TopBar({ simulationState, metrics }: TopBarProps) {
             className="text-[8px] font-mono-data tracking-[0.14em]"
             style={{ color: 'rgba(255,255,255,0.42)' }}
           >
-            Build bởi tôi Carter Fill
+            Build by Carter Fill
           </div>
         </div>
 

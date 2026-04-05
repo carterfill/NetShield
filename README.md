@@ -44,4 +44,4 @@ npm run build
 
 ## Author
 
-Build bởi tôi Carter Fill
+Build by Carter Fill
