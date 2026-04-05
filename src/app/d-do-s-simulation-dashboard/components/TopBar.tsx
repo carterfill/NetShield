@@ -1,7 +1,17 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Shield, Wifi, Clock, Activity, AlertTriangle, CheckCircle, Zap, Radio, Lock } from 'lucide-react';
+import {
+  Shield,
+  Wifi,
+  Clock,
+  Activity,
+  AlertTriangle,
+  CheckCircle,
+  Zap,
+  Radio,
+  Lock,
+} from 'lucide-react';
 import type { SimulationState, SimulationMetrics } from './SimulationDashboard';
 
 interface TopBarProps {
@@ -66,12 +76,12 @@ export default function TopBar({ simulationState, metrics }: TopBarProps) {
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => setUptime(p => p + 1), 1000);
+    const interval = setInterval(() => setUptime((p) => p + 1), 1000);
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => setScanPos(p => (p + 1) % 100), 30);
+    const interval = setInterval(() => setScanPos((p) => (p + 1) % 100), 30);
     return () => clearInterval(interval);
   }, []);
 
@@ -150,13 +160,27 @@ export default function TopBar({ simulationState, metrics }: TopBarProps) {
               v2.4.1
             </span>
           </div>
-          <div className="text-[8px] font-mono-data tracking-[0.2em]" style={{ color: 'rgba(0,212,255,0.3)' }}>
+          <div
+            className="text-[8px] font-mono-data tracking-[0.2em]"
+            style={{ color: 'rgba(0,212,255,0.3)' }}
+          >
             DDoS SIMULATION PLATFORM
+          </div>
+          <div
+            className="text-[8px] font-mono-data tracking-[0.14em]"
+            style={{ color: 'rgba(255,255,255,0.42)' }}
+          >
+            Build bởi tôi Carter Fill
           </div>
         </div>
 
         {/* Vertical separator */}
-        <div className="w-px h-8 mx-1" style={{ background: 'linear-gradient(180deg, transparent, rgba(0,212,255,0.2), transparent)' }} />
+        <div
+          className="w-px h-8 mx-1"
+          style={{
+            background: 'linear-gradient(180deg, transparent, rgba(0,212,255,0.2), transparent)',
+          }}
+        />
 
         {/* System status badge */}
         <div
@@ -202,7 +226,8 @@ export default function TopBar({ simulationState, metrics }: TopBarProps) {
             label: 'SRV LOAD',
             value: `${metrics.serverLoad}%`,
             icon: Zap,
-            color: metrics.serverLoad > 70 ? '#ff2d55' : metrics.serverLoad > 40 ? '#ffaa00' : '#00ff88',
+            color:
+              metrics.serverLoad > 70 ? '#ff2d55' : metrics.serverLoad > 40 ? '#ffaa00' : '#00ff88',
             glow: metrics.serverLoad > 70 ? 'rgba(255,45,85,0.3)' : 'rgba(0,212,255,0.15)',
           },
           {
@@ -212,7 +237,7 @@ export default function TopBar({ simulationState, metrics }: TopBarProps) {
             color: metrics.networkLatency > 80 ? '#ff2d55' : '#00d4ff',
             glow: 'rgba(0,212,255,0.15)',
           },
-        ].map(item => {
+        ].map((item) => {
           const ItemIcon = item.icon;
           return (
             <div
@@ -226,7 +251,10 @@ export default function TopBar({ simulationState, metrics }: TopBarProps) {
             >
               <ItemIcon size={10} style={{ color: item.color }} />
               <div className="flex flex-col">
-                <span className="text-[7px] font-mono-data tracking-widest leading-none" style={{ color: 'rgba(0,212,255,0.4)' }}>
+                <span
+                  className="text-[7px] font-mono-data tracking-widest leading-none"
+                  style={{ color: 'rgba(0,212,255,0.4)' }}
+                >
                   {item.label}
                 </span>
                 <span
@@ -248,7 +276,9 @@ export default function TopBar({ simulationState, metrics }: TopBarProps) {
           style={{ background: 'rgba(0,212,255,0.04)', border: '1px solid rgba(0,212,255,0.08)' }}
         >
           <Clock size={9} style={{ color: 'rgba(0,212,255,0.4)' }} />
-          <span className="text-[9px] font-mono-data" style={{ color: 'rgba(0,212,255,0.5)' }}>{currentTime}</span>
+          <span className="text-[9px] font-mono-data" style={{ color: 'rgba(0,212,255,0.5)' }}>
+            {currentTime}
+          </span>
         </div>
 
         <div
@@ -256,7 +286,9 @@ export default function TopBar({ simulationState, metrics }: TopBarProps) {
           style={{ background: 'rgba(0,255,136,0.04)', border: '1px solid rgba(0,255,136,0.1)' }}
         >
           <Wifi size={9} className="text-neon-green" />
-          <span className="text-[9px] font-mono-data text-neon-green">UP {formatUptime(uptime)}</span>
+          <span className="text-[9px] font-mono-data text-neon-green">
+            UP {formatUptime(uptime)}
+          </span>
         </div>
 
         <div
@@ -278,7 +310,9 @@ export default function TopBar({ simulationState, metrics }: TopBarProps) {
               />
             ))}
           </div>
-          <span className="text-[8px] font-mono-data" style={{ color: 'rgba(0,212,255,0.35)' }}>4 NODES</span>
+          <span className="text-[8px] font-mono-data" style={{ color: 'rgba(0,212,255,0.35)' }}>
+            4 NODES
+          </span>
         </div>
       </div>
 
@@ -286,7 +320,8 @@ export default function TopBar({ simulationState, metrics }: TopBarProps) {
       <div
         className="absolute bottom-0 left-0 right-0 h-[1px]"
         style={{
-          background: 'linear-gradient(90deg, transparent 0%, rgba(0,212,255,0.08) 30%, rgba(0,212,255,0.15) 50%, rgba(0,212,255,0.08) 70%, transparent 100%)',
+          background:
+            'linear-gradient(90deg, transparent 0%, rgba(0,212,255,0.08) 30%, rgba(0,212,255,0.15) 50%, rgba(0,212,255,0.08) 70%, transparent 100%)',
         }}
       />
     </div>

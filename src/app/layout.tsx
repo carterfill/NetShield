@@ -8,8 +8,12 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'NetShield — DDoS Attack Simulation & Firewall Defense Platform',
-  description: 'Real-time DDoS simulation platform for security researchers and analysts. Visualize attack vectors, firewall mitigation, and network behavior under stress.',
+  title: 'NetShield - DDoS Attack Simulation & Firewall Defense Platform',
+  description:
+    'Real-time DDoS simulation platform for security researchers and analysts. Visualize attack vectors, firewall mitigation, and network behavior under stress.',
+  applicationName: 'NetShield',
+  authors: [{ name: 'Carter Fill' }],
+  creator: 'Carter Fill',
   icons: {
     icon: [{ url: '/favicon.ico', type: 'image/x-icon' }],
   },
@@ -22,8 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}
-</body>
+      <body>{children}</body>
     </html>
   );
 }
