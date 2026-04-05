@@ -94,12 +94,19 @@ export default function ControlPanel({
       </div>
 
       {/* Attack Type Selector */}
-      <div className="holo-panel rounded-xl p-3 flex flex-col gap-2">
+      <div
+        className={`holo-panel rounded-xl p-3 flex flex-col gap-2 relative ${
+          attackTypeOpen ? 'z-40' : ''
+        }`}
+        style={{
+          overflow: attackTypeOpen ? 'visible' : 'hidden',
+        }}
+      >
         <div className="flex items-center gap-1.5 mb-0.5">
           <Target size={10} className="text-neon-red" />
           <span className="text-[9px] font-mono-data tracking-[0.15em] text-[#4a7a9b] uppercase">Attack Vector</span>
         </div>
-        <div className="relative">
+        <div className="relative z-10">
           <button
             onClick={() => setAttackTypeOpen(p => !p)}
             disabled={config.isRunning}
@@ -128,7 +135,7 @@ export default function ControlPanel({
 
           {attackTypeOpen && !config.isRunning && (
             <div
-              className="absolute top-full left-0 right-0 mt-1 z-50 rounded-xl overflow-hidden border"
+              className="absolute top-full left-0 right-0 mt-1 z-[80] rounded-xl overflow-hidden border"
               style={{
                 background: 'rgba(4, 12, 22, 0.98)',
                 backdropFilter: 'blur(24px)',
